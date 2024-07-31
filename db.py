@@ -23,9 +23,9 @@ def create_students() -> None:
         """
     CREATE TABLE IF NOT EXISTS students (
         student_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
+        student_name TEXT NOT NULL,
         national_id TEXT UNIQUE NOT NULL,
-        department_id INTEGER NOT NULL,
+        department_id INTEGER NULL,
         level INTEGER NOT NULL,
         hours_passed INTEGER NOT NULL,
         gpa REAL NOT NULL,
@@ -44,7 +44,6 @@ def create_registrations() -> None:
         registration_id INTEGER PRIMARY KEY AUTOINCREMENT,
         student_id INTEGER NOT NULL,
         department_id INTEGER NOT NULL,
-        registration_date DATE DEFAULT (DATE('now')),
         FOREIGN KEY (student_id) REFERENCES students (student_id),
         FOREIGN KEY (department_id) REFERENCES departments (department_id),
         UNIQUE (student_id, department_id)
@@ -147,8 +146,10 @@ def main():
     print("Database and tables created successfully, and sample data inserted.")
 
 
-cursor = cursor.execute("SELECT description FROM departments")
+# main()
+
+cursor = cursor.execute("SELECT * FROM students")
 data = cursor.fetchall()
 
-for department_des in data:
-    print(department_des)
+for name in data:
+    print(name)

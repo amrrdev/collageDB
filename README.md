@@ -29,5 +29,4 @@ This document provides the schema for the database used in the college registrat
 | `registration_id`                    | INTEGER   | PRIMARY KEY AUTOINCREMENT                                   | Unique identifier for the registration.                                        |
 | `student_id`                         | INTEGER   | NOT NULL, FOREIGN KEY REFERENCES students(student_id)       | Student involved in the registration.                                          |
 | `department_id`                      | INTEGER   | NOT NULL, FOREIGN KEY REFERENCES departments(department_id) | Department for which the student is registered.                                |
-| `registration_date`                  | DATE      | DEFAULT (DATE('now'))                                       | Date of the registration.                                                      |
 | `UNIQUE (student_id, department_id)` |           | UNIQUE                                                      | Ensures that a student cannot register for the same department more than once. |

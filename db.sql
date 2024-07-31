@@ -1,5 +1,3 @@
-SELECT * FROM departments;
-SELECT * FROM registrations;
 
 CREATE TABLE IF NOT EXISTS departments (
     department_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -90,6 +88,62 @@ INSERT INTO departments (department_name, description) VALUES (
     'It is worth mentioning that there is a great need for this new quality of graduates in all centers and research laboratories of universities, ' ||
     'institutes, scientific research sectors, industry, petroleum, mineral wealth and environmental affairs.'
 );
+
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Amr Ashraf Mohamed Mostafa', '30402051799823', NULL, 3, 61, 3.51);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Mohamed Ahmed Mohammed Khaled', '30402051700999', NULL, 4, 61, 3.21);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('John Snow Ehab Wagdy', '30402051700111', NULL, 3, 58, 3.78);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Karim Ehab Ahmed Yousif', '30402051755182', NULL, 3, 61, 1.9);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Mostafa Mohammed Mahmoud Yousif', '30402051712257', NULL, 3, 61, 2.3);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Omar Magdy Mohamed Yousif', '30402051755991', NULL, 3, 61, 3.9);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Ahmed Waled John Mohamed', '30402051755120', NULL, 3, 61, 2.1);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Ashraf Mohamed Abdel3ati Wagdy', '30402051745672', NULL, 3, 61, 2.89);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Asmaa John Ahmed Khalel', '30402051745001', NULL, 3, 58, 3.0);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Waled Ahmed Yousif Saad', '30402051777420', NULL, 3, 61, 3.2);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Sara Ahmed Ali', '30402051799999', NULL, 3, 60, 3.6);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Mohamed Ali Hassan', '30402051800000', NULL, 3, 62, 3.3);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Heba Hossam Youssef', '30402051811111', NULL, 3, 64, 3.8);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Khaled Tamer Mostafa', '30402051822222', NULL, 3, 59, 2.7);
+
+INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
+VALUES ('Noura Ibrahim Saleh', '30402051833333', NULL, 3, 63, 3.5);
+
+
+
+DELETE FROM departments
+WHERE department_id = 5;
+
+UPDATE students
+SET level = 3
+WHERE student_id = 2;
+
 
 SELECT * FROM departments;
 SELECT description  FROM departments WHERE department_name = 'Computer Science';
