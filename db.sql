@@ -7,10 +7,10 @@ CREATE TABLE IF NOT EXISTS departments (
 
 
 CREATE TABLE IF NOT EXISTS students (
-    student_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id TEXT PRIMARY KEY NOT NULL ,
     name TEXT NOT NULL,
-    national_id TEXT UNIQUE NOT NULL,
-    department_id INTEGER NOT NULL,
+    student_code TEXT UNIQUE NOT NULL,
+    department_id INTEGER DEFAULT NULL,
     level INTEGER NOT NULL,
     hours_passed INTEGER NOT NULL,
     gpa REAL NOT NULL,
@@ -20,9 +20,8 @@ CREATE TABLE IF NOT EXISTS students (
 
 CREATE TABLE IF NOT EXISTS registrations (
     registration_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student_id INTEGER NOT NULL,
+    student_id TEXT NOT NULL,
     department_id INTEGER NOT NULL,
-    registration_date DATE DEFAULT (DATE('now')),
     FOREIGN KEY (student_id) REFERENCES students (student_id),
     FOREIGN KEY (department_id) REFERENCES departments (department_id),
     UNIQUE (student_id, department_id)
@@ -89,51 +88,55 @@ INSERT INTO departments (department_name, description) VALUES (
     'institutes, scientific research sectors, industry, petroleum, mineral wealth and environmental affairs.'
 );
 
+SELECT * FROM departments;
+SELECT * FROM  students;
+SELECT * FROM registrations;
 
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Amr Ashraf Mohamed Mostafa', '30402051799823', NULL, 3, 61, 3.51);
+INSERT INTO students (name, student_id, student_code, level, hours_passed, gpa)
+VALUES ('Amr Ashraf Mohamed Mostafa', '30402051700999', '202233235', 3, 61, 3.51);
 
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Mohamed Ahmed Mohammed Khaled', '30402051700999', NULL, 4, 61, 3.21);
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Mohamed Ahmed Mohammed Khaled', '30402051700999', '202233235', 4, 61, 3.21);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('John Snow Ehab Wagdy', '30402051700111', '202233236', 3, 58, 3.78);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Karim Ehab Ahmed Yousif', '30402051755182', '202233237', 3, 61, 1.9);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Mostafa Mohammed Mahmoud Yousif', '30402051712257', '202233238', 3, 61, 2.3);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Omar Magdy Mohamed Yousif', '30402051755991', '202233239', 3, 61, 3.9);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Ahmed Waled John Mohamed', '30402051755120', '202233240', 3, 61, 2.1);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Ashraf Mohamed Abdel3ati Wagdy', '30402051745672', '202233241', 3, 61, 2.89);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Asmaa John Ahmed Khalel', '30402051745001', '202233242', 3, 58, 3.0);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Waled Ahmed Yousif Saad', '30402051777420', '202233243', 3, 61, 3.2);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Sara Ahmed Ali', '30402051799999', '202233244', 3, 60, 3.6);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Mohamed Ali Hassan', '30402051800000', '202233245', 3, 62, 3.3);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Heba Hossam Youssef', '30402051811111', '202233246', 3, 64, 3.8);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Khaled Tamer Mostafa', '30402051822222', '202233247', 3, 59, 2.7);
+--
+-- INSERT INTO students (student_name, student_id, student_code, department_id, level, hours_passed, gpa)
+-- VALUES ('Noura Ibrahim Saleh', '30402051833333', '202233248', 3, 63, 3.5);
 
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('John Snow Ehab Wagdy', '30402051700111', NULL, 3, 58, 3.78);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Karim Ehab Ahmed Yousif', '30402051755182', NULL, 3, 61, 1.9);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Mostafa Mohammed Mahmoud Yousif', '30402051712257', NULL, 3, 61, 2.3);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Omar Magdy Mohamed Yousif', '30402051755991', NULL, 3, 61, 3.9);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Ahmed Waled John Mohamed', '30402051755120', NULL, 3, 61, 2.1);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Ashraf Mohamed Abdel3ati Wagdy', '30402051745672', NULL, 3, 61, 2.89);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Asmaa John Ahmed Khalel', '30402051745001', NULL, 3, 58, 3.0);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Waled Ahmed Yousif Saad', '30402051777420', NULL, 3, 61, 3.2);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Sara Ahmed Ali', '30402051799999', NULL, 3, 60, 3.6);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Mohamed Ali Hassan', '30402051800000', NULL, 3, 62, 3.3);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Heba Hossam Youssef', '30402051811111', NULL, 3, 64, 3.8);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Khaled Tamer Mostafa', '30402051822222', NULL, 3, 59, 2.7);
-
-INSERT INTO students (student_name, national_id, department_id, level, hours_passed, gpa)
-VALUES ('Noura Ibrahim Saleh', '30402051833333', NULL, 3, 63, 3.5);
 
 
 
