@@ -1,8 +1,7 @@
 
 CREATE TABLE IF NOT EXISTS departments (
     department_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    department_name TEXT NOT NULL,
-    description TEXT
+    department_name TEXT NOT NULL
 );
 
 
