@@ -34,28 +34,9 @@ def create_students() -> None:
     )
 
 
-def create_registrations() -> None:
-
-    # Registrations
-    cursor.execute(
-        """
-    CREATE TABLE IF NOT EXISTS registrations (
-    registration_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student_id TEXT NOT NULL,
-    department_id INTEGER NOT NULL,
-    FOREIGN KEY (student_id) REFERENCES students (student_id),
-    FOREIGN KEY (department_id) REFERENCES departments (department_id),
-    UNIQUE (student_id, department_id)
-);
-    """
-    )
-
-
 def main():
     create_departments()
     create_students()
-    create_registrations()
-
     conn.commit()
     conn.close()
 
