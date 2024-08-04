@@ -43,10 +43,10 @@ def main():
     print("Database and tables created successfully, and sample data inserted.")
 
 
-main()
+# main()
 
-# cursor = cursor.execute("SELECT * FROM students")
-# data = cursor.fetchall()
+cursor = cursor.execute("SELECT * FROM students WHERE GPA >= 3.1")
+data = cursor.fetchall()
 
-# for name in data:
-#     print(name)
+for name in data:
+    print(name)
